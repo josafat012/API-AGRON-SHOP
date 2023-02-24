@@ -37,6 +37,15 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 
+app.get("/", (req, res) => {
+	res.json({ message: "Hello World"  });
+})
+
+app.get("/health-check", (req, res) => {
+	res.json({ message: "Server up and running"  });
+})
+
+
 // uso de routers
 app.use("/usuarios", usuariosRuta);
 app.use("/productos", productosRuta);
