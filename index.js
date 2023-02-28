@@ -22,8 +22,8 @@ const app = express();
 
 
 https.createServer({
-  cert: fs.readFileSync(url('/etc/letsencrypt/archive/agronshop.iothings.com.mx/cert1.pem')),
-  key: fs.readFileSync(url('/etc/letsencrypt/archive/agronshop.iothings.com.mx/privkey1.pem'))
+  cert: fs.readFileSync(URL('/etc/letsencrypt/archive/agronshop.iothings.com.mx/cert1.pem')),
+  key: fs.readFileSync(URL('/etc/letsencrypt/archive/agronshop.iothings.com.mx/privkey1.pem'))
   },app).listen(PORT, function(){
   console.log('Servidor https corriendo en el puerto 443');
   });
