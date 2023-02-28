@@ -21,13 +21,6 @@ const PORT = process.env.PORT || 8000;
 const app = express();
 
 
-https.createServer({
-  cert: fs.readFileSync('/etc/letsencrypt/archive/agronshop.iothings.com.mx/cert1.pem'),
-  key: fs.readFileSync('/etc/letsencrypt/archive/agronshop.iothings.com.mx/privkey1.pem')
-  },app).listen(PORT, function(){
-  console.log('Servidor https corriendo en el puerto 443');
-  });
-
 
 // Libreria para mongodb - usa URL que debe existir en .env
 // usa la Base de datos llamada mongo y la coleccion llamada todos
@@ -64,6 +57,9 @@ app.use("/usuarios", usuariosRuta);
 app.use("/productos", productosRuta);
 
 
-app.listen(PORT, async () => {
-  console.log(`server up on port ${PORT}`);
-});
+https.createServer({
+  cert: fs.readFileSync('/etc/letsencrypt/archive/agronshop.iothings.com.mx/cert1.pem'),
+  key: fs.readFileSync('/etc/letsencrypt/archive/agronshop.iothings.com.mx/privkey1.pem')
+  },app).listen(PORT, function(){
+  console.log('Servidor https corriendo en el puerto 443');
+  });
