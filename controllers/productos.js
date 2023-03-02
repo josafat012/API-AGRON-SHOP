@@ -29,6 +29,7 @@ const createProductos = async (req, res) => {
     nombre: req.body.nombre,
     precio: req.body.precio,
     descripcion: req.body.descripcion,
+    categoria: req.body.categoria,
     proveedor: req.body.proveedor
   });
 
@@ -49,6 +50,7 @@ const updateProductos = async (req, res) => {
         nombre: req.body.nombre,
         precio: req.body.precio,
         descripcion: req.body.descripcion,
+        categoria: req.body.categoria,
         proveedor: req.body.proveedor
       },
     },
