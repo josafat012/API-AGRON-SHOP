@@ -23,7 +23,7 @@ const getCompras = async (req, res) => {
 const getComprasById = async(req, res, next) => {
     try {
         const compra = await Compras.findById(req.params.id)
-        .populate('usuarios')
+        .populate('usuario')
         .populate({
             path: 'productos.producto',
             model: 'productos'
