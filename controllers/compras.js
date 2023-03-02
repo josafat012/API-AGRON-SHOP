@@ -5,7 +5,7 @@ const Compras = require("../model/compras");
 const getCompras = async (req, res) => {
     try {
         const compras = await Compras.find({})
-        .populate('usuarios')
+        .populate('usuario')
         .populate({
             path: 'productos.producto',
             model: 'productos'
