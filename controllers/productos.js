@@ -11,6 +11,18 @@ const getProductos = async (req, res) => {
   });
 };
 
+const getProductosById = async(req, res) => {
+  try {
+    let categoria = req.params.productosCATEGORIA
+    const product = await Productos.find({categoria: req.params.productosCATEGORIA}).exec()
+    
+    return res.status(200).json(product)
+  } catch (error) {
+    console.error(error)
+    return res.status(400).json({message: 'Error en la peticion'});
+  }
+}
+
 // Crear un objeto con el formato indicado
 const createProductos = async (req, res) => {
   const producto = new Productos({
@@ -59,6 +71,7 @@ const deleteProductos = async (req, res) => {
 // 
 module.exports = {
   getProductos,
+  getProductosById,
   createProductos,
   updateProductos,
   deleteProductos,
