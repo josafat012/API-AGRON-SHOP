@@ -1,5 +1,5 @@
 // constante del modelo de datos
-const Compras = require("../model/productos");
+const Compras = require("../model/compras");
 
 // Obtener todos los objetos
 const getCompras = async (req, res) => {
