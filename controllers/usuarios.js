@@ -16,17 +16,12 @@ const validLogin = async (req, res) => {
   try {
     let username = req.params.usuariosNOMBREUSUARIO
     let password = req.params.usuariosCONTRASENA
-    // let datos = []
     const user = await Usuarios.findOne({nombreUsuario: req.params.usuariosNOMBREUSUARIO}).exec()
     if (!user) {
       return res.status(404).send({ message: "Usuario no encontrado" })
     } 
     if (username === user.nombreUsuario) {
-      // console.log("paso if user")
       if(password === user.contrasena){
-        // console.log('paso if passw')
-        // datos.push(user._id, user.esVendedor, user.nombreUsuario)
-        // console.log(username, password, datos)
         return res.status(200).send({ message: "Has iniciado sesion 😀" })
       } else {
         return res.status(400).send({ message: "Contraseña incorrecta" })

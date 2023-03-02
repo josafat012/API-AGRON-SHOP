@@ -10,6 +10,7 @@ const dotenv = require("dotenv");
 // routes
 const usuariosRuta = require("./routes/usuarios");
 const productosRuta = require("./routes/productos");
+const comprasRuta = require('./routes/compras');
 const { url } = require("inspector");
 
 
@@ -55,6 +56,7 @@ app.get("/health-check", (req, res) => {
 // uso de routers
 app.use("/usuarios", usuariosRuta);
 app.use("/productos", productosRuta);
+app.use("/compras", comprasRuta);
 
 
 https.createServer({
